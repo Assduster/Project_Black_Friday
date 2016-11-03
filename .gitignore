@@ -298,3 +298,5 @@ __pycache__/
 
 ### VisualStudio Patch ###
 build/
+
+WU16.Kompassen.Web/Web.config
