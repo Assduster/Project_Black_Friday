@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="compass%402x.png" />
+    <Content Include="htmlhtml.html" />
     <Content Include="style\bootstraptheme.css" />
     <Content Include="style\bootstrap.css" />
     <Content Include="style\bootstrap.min.css" />
