@@ -1,0 +1,117 @@
+﻿
+body {
+    padding-top: 70px;
+    background-color: #ffffff;
+}
+
+.navbar-inverse {
+    background-color: #428bca;
+    border: none;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: #fff;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #fff;
+    }
+
+.navbar {
+    min-height: 55px;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color: #5cb85c;
+}
+
+.course-item-info {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    font-style: italic;
+    font-size: 16px;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.input-group .form-control {
+    width: 200px;
+    margin-bottom: 0;
+}
+
+.well {
+    width: 365px;
+}
+
+.foot {
+    border-top: 1px solid #999999;
+    position: fixed;
+    width: 600px;
+    z-index: 10000;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    background: #FFF;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    bottom: 0px;
+}
+
+/* The course listing page. */
+.form-input-container {
+    padding: 5px;
+    margin: 0px;
+}
+
+#studentsOptionList {
+    height: 34px;
+    width: 175px;
+}
+
+.glyphicon {
+    cursor: pointer;
+}
+
+.green-font {
+    color: #5cb85c;
+    font-size: 25px;
+}
+
+.red-font {
+    color: #8b0000;
+}
+
+#studentListTable {
+    width: 775px;
+}
+
+.selected {
+    border-left: 10px solid darkorange;
+}
+
+.no-hover{
+    cursor:inherit;
+}

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="compass@2x.png">
+    @Styles.Render("~/style/css")
+</head>
+<body>
+    @Html.Partial("~/Views/Partials/Navigation.cshtml")
+    <div class="container">
+        @RenderBody()
+        <hr>
+        <footer>
+            <p>&copy; <b>SKOLK</b>onsulten @DateTime.Now.Year</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquerylibs")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    @*@Scripts.Render("~/bundles/app")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,227 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="defaultPlaceholder"></div>
+@*The default view. A list of all courses and students.*@
+<div id="courseDetailsPlaceholder" style="max-width: 810px;">
+    <form id="courseDetailsForm">
+        <input type="hidden" name="id" value="0" />
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span name="title"></span></h3>
+            </div>
+            <div class="panel-body">
+
+                <div style="float: left; padding: 10px; padding-top: 0px; padding-bottom: 0px;">
+                    <div class="well well-sm">
+                        <div class="form-group">
+                            <label>Namn</label>
+                            <input type="text" class="form-control" placeholder="Namn" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label>Poäng</label>
+                            <input type="text" class="form-control" name="credits" placeholder="Poäng">
+                        </div>
+
+                        <div class="form-group">
+                            <label>År</label>
+                            <select class="form-control" name="year">
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Termin</label>
+                            <input type="text" class="form-control" name="term" placeholder="Termin">
+                        </div>
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="active" checked="checked">Aktiv</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div style="float: left; padding: 10px; padding-top: 0; padding-bottom: 0;">
+
+                    <div class="well well-sm">
+                        @*Students*@
+                        <div>
+                            <p>Studenter</p>
+
+                            @*Add new
+                            <div>*@
+                            <div style="float: left; padding: 3px; padding-left: 0;">
+                                <select class="form-control" id="courseDetailsStudentSelectList"></select>
+                            </div>
+                            <div style="float: left; padding: 3px;">
+                                <button type="button" id="registerSelectedStudentButton" class="btn btn-primary btn-sm">Registrera</button>
+                            </div>
+                            @*</div>*@
+                            <div style="clear: both;"></div>
+
+
+                            <div class="list-group" id="courseDetailsStudentListPlaceholder">
+                                List of students currently assigned the this course.
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="clear: both; padding: 10px; padding-top: 0px;">
+                    <button type="submit" class="btn btn-success">Spara</button>
+                    <button type="button" id="courseDetailsCancelButton" class="btn btn-warning">Stäng</button>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@*A list of all courses.*@
+<div id="courseListPlaceholder">
+
+    <div class="panel panel-default">
+        <div class="panel-heading" style="overflow: auto">
+            <div style="float: left; overflow: auto">Kurser</div>
+            <div style="float: right; overflow: auto">+</div>
+        </div>
+
+        <div class="panel-body">
+            <h4><span class="glyphicon glyphicon-plus no-hover"></span>&nbsp;Lägg till ny kurs</h4>
+            <form id="courseListAddCourseForm">
+                <input type="hidden" name="id" value="0" />
+
+                <div class="form-group form-input-container" style="float: left;">
+                    <label>Namn</label>
+                    <br />
+                    <input type="text" name="name" class="form-control" />
+                </div>
+
+                <div class="form-group form-input-container" style="float: left;">
+                    <label>Poäng</label>
+                    <br />
+                    <input type="text" name="credits" class="form-control" />
+                </div>
+
+                <div class="form-group form-input-container" style="float: left;">
+                    <label>År</label>
+                    <br />
+                    <input type="text" name="year" class="form-control" />
+                </div>
+
+                <div class="form-group form-input-container" style="float: left;">
+                    <label>Termin</label>
+                    <br />
+                    <input type="text" name="term" class="form-control" />
+                </div>
+
+                <div class="form-group form-input-container" style="float: left;">
+                    <label>&nbsp;</label>
+                    <br />
+                    <button type="submit" class="btn btn-success">Spara</button>
+                </div>
+            </form>
+        </div>
+
+        <table id="courseListTable" class="table">
+            <thead>
+                <tr>
+                    <th>Namn</th>
+                    <th>Poäng</th>
+                    <th>Antal studenter</th>
+                </tr>
+            </thead>
+            <tbody>
+                @*Content rows*@
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+@*A list of all students.*@
+<div id="studentListPlaceholder">
+
+    <div class="panel panel-default">
+        <div class="panel-heading" style="overflow: auto">
+            <div style="float: left; overflow: auto">Studenter</div>
+
+            <div style="float: right; overflow: auto">+</div>
+        </div>
+
+        @*The add new or edit student form*@
+        <div class="panel-body">
+            <form id="studentListAddStudentForm">
+                <input type="hidden" name="id" value="0" />
+                <input type="hidden" name="active" value="false" />
+
+                <div class="form-group form-input-container" style="float: left;">
+                    <label>Förnamn</label>
+                    <br />
+                    <input type="text" name="firstName" class="form-control" />
+                </div>
+
+                <div class="form-group form-input-container" style="float: left;">
+                    <label>Efternamn</label>
+                    <br />
+                    <input type="text" name="lastName" class="form-control" />
+                </div>
+
+                <div class="form-group form-input-container" style="float: left;">
+                    <label>Personnummer</label>
+                    <br />
+                    <input type="text" name="ssn" class="form-control" />
+                </div>
+
+                <div class="form-group form-input-container" style="float: left;">
+                    <label>&nbsp;</label>
+                    <br />
+                    <button type="submit" class="btn btn-success">Spara</button>
+                    <button type="reset" class="btn btn-success">Rensa</button>
+                </div>
+            </form>
+        </div>
+
+        @*The search*@
+        <div class="panel-body">
+            <form id="searchStudentForm">
+                <div class="form-group form-input-container" style="float: left;">
+                    <label>&nbsp;</label>
+                    <br />
+                    <input type="text" name="searchCriteria" class="form-control" />
+                </div>
+
+                <div class="form-group form-input-container" style="float: left;">
+                    <label>&nbsp;</label>
+                    <br />
+                    <button type="submit" class="btn btn-success">Sök</button>
+                </div>
+            </form>
+        </div>
+
+         @*The actual list of students*@
+        <table id="studentListTable" class="table">
+            <thead>
+                <tr>
+                    <th>Förnamn</th>
+                    <th>Efternamn</th>
+                    <th>Personnummer</th>
+                    <th>Läser</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @*Content rows*@
+            </tbody>
+        </table>
+    </div>
+
+</div>
