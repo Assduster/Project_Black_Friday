@@ -21,6 +21,15 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/modernizr")
     @*@Scripts.Render("~/bundles/app")*@
+    <script src="~/scripts/app.js"></script>
     @RenderSection("scripts", required: false)
+    <script>
+        $("#searchStudentForm > div button").on("click", function (e) {
+            var searchQuery = $('#searchQuery').val();
+
+            e.preventDefault();
+            app.searchForStudent(searchQuery);   
+        });
+    </script>
 </body>
 </html>
