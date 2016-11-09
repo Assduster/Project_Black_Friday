@@ -23,21 +23,8 @@
     <script src="~/scripts/app.js"></script>
     @RenderSection("scripts", required: false)
     <script>
-        $("#searchStudentForm > div button").on("click", function (e) {
+        app.init(); //kallar på init funktionen i app.js
 
-            $("#studentListTable > tbody").empty();
-            e.preventDefault();
-
-            var searchQuery = $('#searchQuery').val();
-
-            if (searchQuery == "") {
-                $("#SearchQueryLabel").html("Ange sökfras i fältet...");
-                return;
-            }
-
-            $("#SearchQueryLabel").empty();
-            app.searchForStudent(searchQuery);
-        });
     </script>
 </body>
 </html>

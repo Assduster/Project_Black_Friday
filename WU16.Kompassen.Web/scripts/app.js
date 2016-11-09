@@ -2,6 +2,47 @@
 
 var app = {
 
+    init: function () {
+
+        //Add a student
+        $("#saveStudent").on("click", function (e) {
+            e.preventDefault();
+
+            var id = $('[name="id"]').val();
+            var active = $('[name="active"]').val();
+            var firstName = $('[name="firstName"]').val();
+            var lastName = $('[name="lastName"]').val();
+            var ssn = $('[name="ssn"]').val();
+
+            var student = {
+                Id: id,
+                FirstName: firstName,
+                LastName: lastName,
+                SSN: ssn,
+                Active: active
+            }
+
+            app.registerNewStudent(student)
+
+        });
+
+        //Search for a student
+        $("#searchStudentForm > div button").on("click", function (e) {
+
+            $("#studentListTable > tbody").empty();
+            e.preventDefault();
+
+            var searchQuery = $('#searchQuery').val();
+
+            if (searchQuery == "") {
+                $("#SearchQueryLabel").html("Ange sökfras i fältet...");
+                return;
+            }
+
+            $("#SearchQueryLabel").empty();
+            app.searchForStudent(searchQuery);
+        });
+    },
     //Searchquery
     searchForStudent: function (searchQuery) {
         $.ajax({
@@ -30,6 +71,19 @@ var app = {
             }
         }).fail(function () {
             $("#SearchQueryLabel").html("Något gick snett. Försök igen..."); //TODO
+        });
+    },
+
+    registerNewStudent: function (student) {
+
+        $.ajax({
+            url: url + "/api/students/",
+            type: "POST",
+            data: JSON.stringify(student),
+            contentType: "application/json"
+
+        }).done(function (data) {
+            console.log("Student tillagd!"); //TODO Städa
         });
     }
 }
