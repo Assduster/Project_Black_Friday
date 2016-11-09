@@ -8,7 +8,11 @@ var app = {
             type: "GET",
             url: url + "api/searchStudents/" + searchQuery,
         }).done(function (data) {
-            console.log(data);
+
+            if (data.length < 1) {  //Om det inte retuneras en student
+                $("#SearchQueryLabel").html("Ingen student hittades. Försök igen...");
+            }
+
             for (var counter = 0; counter < data.length; counter++) {
                 $("#studentListTable > tbody").append("<tr><td>" +
                                             data[counter].firstName + "</td><td>" +
@@ -25,7 +29,7 @@ var app = {
                 }
             }
         }).fail(function () {
-            console.log("Error!"); //TODO 
+            $("#SearchQueryLabel").html("Något gick snett. Försök igen..."); //TODO
         });
     }
 }

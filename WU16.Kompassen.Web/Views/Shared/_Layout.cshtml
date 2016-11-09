@@ -20,15 +20,23 @@
     @Scripts.Render("~/bundles/jquerylibs")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/modernizr")
-    @*@Scripts.Render("~/bundles/app")*@
     <script src="~/scripts/app.js"></script>
     @RenderSection("scripts", required: false)
     <script>
         $("#searchStudentForm > div button").on("click", function (e) {
+
+            $("#studentListTable > tbody").empty();
+            e.preventDefault();
+
             var searchQuery = $('#searchQuery').val();
 
-            e.preventDefault();
-            app.searchForStudent(searchQuery);   
+            if (searchQuery == "") {
+                $("#SearchQueryLabel").html("Ange sökfras i fältet...");
+                return;
+            }
+
+            $("#SearchQueryLabel").empty();
+            app.searchForStudent(searchQuery);
         });
     </script>
 </body>
