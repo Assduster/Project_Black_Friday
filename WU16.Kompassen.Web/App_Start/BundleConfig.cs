@@ -16,7 +16,9 @@ namespace WU16.Kompassen.Web
                         "~/scripts/jquery.easing*"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                        "~/scripts/app.js"));
+                        "~/scripts/app.js",
+                        "~/scripts/students.js",
+                        "~/scripts/courses.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
