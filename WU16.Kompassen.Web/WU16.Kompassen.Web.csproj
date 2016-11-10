@@ -159,7 +159,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="scripts\app.js" />
+    <Content Include="scripts\sitecore\app.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -169,7 +169,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="scripts\courses.js" />
+    <Content Include="scripts\sitecore\courses.js" />
     <Content Include="scripts\jquery-3.1.1.js" />
     <Content Include="scripts\jquery-3.1.1.min.js" />
     <Content Include="scripts\jquery-3.1.1.slim.js" />
@@ -184,7 +184,7 @@
     <Content Include="scripts\respond.matchmedia.addListener.js" />
     <Content Include="scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="scripts\respond.min.js" />
-    <Content Include="scripts\students.js" />
+    <Content Include="scripts\sitecore\students.js" />
     <Content Include="style\bootstraptheme.css" />
     <Content Include="style\bootstrap.css" />
     <Content Include="style\bootstrap.min.css" />
