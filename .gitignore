@@ -300,3 +300,4 @@ __pycache__/
 build/
 
 WU16.Kompassen.Web/Web.config
+/db/Kompassen.bak
