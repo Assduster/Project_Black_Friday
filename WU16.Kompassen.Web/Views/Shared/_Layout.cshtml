@@ -20,7 +20,11 @@
     @Scripts.Render("~/bundles/jquerylibs")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/modernizr")
-    @*@Scripts.Render("~/bundles/app")*@
+    <script src="~/scripts/app.js"></script>
     @RenderSection("scripts", required: false)
+    <script>
+        app.init(); //kallar på init funktionen i app.js
+
+    </script>
 </body>
 </html>

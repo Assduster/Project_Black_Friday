@@ -16,10 +16,11 @@ namespace WU16.Kompassen.Web.API
         public IEnumerable<Student> Get(string query)
         {
             var results = db.Students
-                .Include(y => y.Courses).Where(x => x.FirstName.Contains(query) 
-                || x.LastName.Contains(query) 
+                .Include(y => y.Courses).Where(x => x.FirstName.Contains(query)
+                || x.LastName.Contains(query)
                 || x.SSN.Contains(query));
-    
+
+
             return results;
         }
     }
