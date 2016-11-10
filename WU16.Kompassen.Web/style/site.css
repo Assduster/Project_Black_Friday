@@ -117,6 +117,6 @@ body {
 }
 
 /* Gömmer alla fält by default - David */
-#courseDetailsForm, #courseListPlaceholder, #studentListPlaceholder {
+/*#courseDetailsForm, #courseListPlaceholder, #studentListPlaceholder {
     display: none;
-}
+}*/
