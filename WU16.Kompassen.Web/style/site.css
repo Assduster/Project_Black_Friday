@@ -17,9 +17,9 @@ body {
         color: #fff;
     }
 
-.navbar {
+/*.navbar {
     min-height: 55px;
-}
+}*/
 
 .navbar-brand {
     float: left;
@@ -116,3 +116,7 @@ body {
     cursor:inherit;
 }
 
+/* Gömmer alla fält by default - David */
+#courseDetailsForm, #courseListPlaceholder, #studentListPlaceholder {
+    display: none;
+}
