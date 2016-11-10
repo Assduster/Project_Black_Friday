@@ -298,6 +298,5 @@ __pycache__/
 
 ### VisualStudio Patch ###
 build/
-git rm --cached web.config
-git rm --cached WU16.Kompassen.Web/Web.config
+
 WU16.Kompassen.Web/Web.config
