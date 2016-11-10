@@ -9,8 +9,8 @@
                     console.log(hrefVal);
                     break;
                 case "#students":
-                    //students.submitSearchQuery();
-                    //students.submitNewStudent();
+                    students.submitSearchQuery();
+                    students.submitNewStudent();
                     break;
                 case 2:
                     day = "Tuesday";
