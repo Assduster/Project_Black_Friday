@@ -96,36 +96,36 @@
         <div class="panel-body">
             <h4><span class="glyphicon glyphicon-plus no-hover"></span>&nbsp;Lägg till ny kurs</h4>
             <form id="courseListAddCourseForm">
-                <input type="hidden" name="id" value="0" />
+                <input type="hidden" name="course-id" value="0" />
 
                 <div class="form-group form-input-container" style="float: left;">
                     <label>Namn</label>
                     <br />
-                    <input type="text" name="name" class="form-control" />
+                    <input type="text" name="course-name" class="form-control" />
                 </div>
 
                 <div class="form-group form-input-container" style="float: left;">
                     <label>Poäng</label>
                     <br />
-                    <input type="text" name="credits" class="form-control" />
+                    <input type="text" name="course-credits" class="form-control" />
                 </div>
 
                 <div class="form-group form-input-container" style="float: left;">
                     <label>År</label>
                     <br />
-                    <input type="text" name="year" class="form-control" />
+                    <input type="text" name="course-year" class="form-control" />
                 </div>
 
                 <div class="form-group form-input-container" style="float: left;">
                     <label>Termin</label>
                     <br />
-                    <input type="text" name="term" class="form-control" />
+                    <input type="text" name="course-term" class="form-control" />
                 </div>
 
                 <div class="form-group form-input-container" style="float: left;">
                     <label>&nbsp;</label>
                     <br />
-                    <button type="submit" class="btn btn-success">Spara</button>
+                    <button id="createCourse" class="btn btn-success">Spara</button>
                 </div>
             </form>
         </div>

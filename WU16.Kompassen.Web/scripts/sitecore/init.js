@@ -12,8 +12,8 @@
                     students.submitSearchQuery();
                     students.submitNewStudent();
                     break;
-                case 2:
-                    day = "Tuesday";
+                case "#courses":
+                    courses.createNewCourse();                   
                     break;
                 case 3:
                     day = "Wednesday";
