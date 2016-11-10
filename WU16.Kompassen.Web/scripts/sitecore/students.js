@@ -2,30 +2,7 @@
 
 var students = {
 
-    init: function () {
-
-        //Add a student
-        $("#saveStudent").on("click", function (e) {
-            e.preventDefault();
-
-            var id = $('[name="id"]').val();
-            var active = $('[name="active"]').val();
-            var firstName = $('[name="firstName"]').val();
-            var lastName = $('[name="lastName"]').val();
-            var ssn = $('[name="ssn"]').val();
-
-            var student = {
-                Id: id,
-                FirstName: firstName,
-                LastName: lastName,
-                SSN: ssn,
-                Active: active
-            }
-
-            students.registerNewStudent(student)
-
-        });
-
+    submitSearchQuery: function () {
         //Search for a student
         $("#searchStudentForm > div button").on("click", function (e) {
 
@@ -43,6 +20,7 @@ var students = {
             students.searchForStudent(searchQuery);
         });
     },
+
     //Searchquery
     searchForStudent: function (searchQuery) {
         $.ajax({
@@ -73,7 +51,7 @@ var students = {
             $("#SearchQueryLabel").html("Något gick snett. Försök igen..."); //TODO
         });
     },
-
+    //Add a student
     registerNewStudent: function (student) {
 
         $.ajax({
@@ -84,6 +62,30 @@ var students = {
 
         }).done(function (data) {
             console.log("Student tillagd!"); //TODO Städa
+        });
+    },
+    
+    submitNewStudent: function () {
+        
+        $("#saveStudent").on("click", function (e) {
+            e.preventDefault();
+
+            var id = $('[name="id"]').val();
+            var active = $('[name="active"]').val();
+            var firstName = $('[name="firstName"]').val();
+            var lastName = $('[name="lastName"]').val();
+            var ssn = $('[name="ssn"]').val();
+
+            var student = {
+                Id: id,
+                FirstName: firstName,
+                LastName: lastName,
+                SSN: ssn,
+                Active: active
+            }
+
+            students.registerNewStudent(student)
+
         });
     }
 }
