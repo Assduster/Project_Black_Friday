@@ -20,6 +20,7 @@
                 case "#courses":
                     courses.createNewCourse();
                     courses.courseVisibility();
+                    courses.listAllCourses();
                     break;
                 case "#addCourse":
                     courses.createNewCourse();

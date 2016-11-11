@@ -48,6 +48,20 @@ var courses = {
     },
     startVisibility: function () {
         $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').hide();
+    },
+    // List all courses under "kurser"
+    listAllCourses: function () {
+        $.ajax({
+            type: "GET",
+            url: url + "/api/courses/",
+        }).done(function (data) {
+            console.log(data)
+            for (var i = 0; i < data.length; i++) {
+                $("#courseListTable").append("<tr><td>" +
+                                data[i].name + "</td><td>" +
+                                data[i].credits + "</td></tr>")
+            }
+        });
     }
 
 }
