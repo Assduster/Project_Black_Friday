@@ -21,6 +21,7 @@
                     courses.createNewCourse();
                     courses.courseVisibility();
                     courses.listAllCourses();
+                    courses.registerStudentToCourse();
                     break;
                 case "#addCourse":
                     courses.createNewCourse();

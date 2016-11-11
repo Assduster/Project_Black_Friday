@@ -1,7 +1,21 @@
 ﻿var url = "http://localhost:45959/";
 
 var courses = {
-
+    
+    //Register student to course
+    registerStudentToCourse: function () {
+        $.ajax({
+            url: url + "/api/students/",
+            type: "GET"
+        }).done(function (data) {
+            for (var counter = 0; counter < data.length; counter++) {
+                $('#courseDetailsStudentSelectList').append("<option>" + 
+                    data[counter].firstName + " " +
+                    data[counter].lastName + "(" +
+                    data[counter].ssn + ")</option");
+            }
+        })
+    },
     //Add course to db
     registerNewCourse: function (course) {
 
