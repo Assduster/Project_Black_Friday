@@ -1,4 +1,4 @@
-﻿var url = "http://localhost:45959/"; //satt som global för att fungera i alla GET/POST. Ändra efter behov.
+﻿var url = "http://localhost:45959/"; //satt som global för att fungera i alla GET/POST.
 
 var students = {
 
@@ -34,6 +34,7 @@ var students = {
 
             for (var counter = 0; counter < data.length; counter++) {
                 $("#studentListTable > tbody").append("<tr><td>" +
+                                            data[counter].id + "</td><td>" +
                                             data[counter].firstName + "</td><td>" +
                                             data[counter].lastName + "</td><td>" +
                                             data[counter].ssn + "</td><td>" +
@@ -64,6 +65,33 @@ var students = {
             console.log("Student tillagd!"); //TODO Städa
         });
     },
+
+    listOfStudents: function(){  //TODO
+        $.ajax({
+            url: url + "/api/students/",
+            type: "GET"
+        }).done(function (data) {
+            console.log(data);
+            for (var counter = 0; counter < data.length; counter++) {
+                $("#studentListTable > tbody").append("<tr><td>" +
+                                            data[counter].id + "</td><td>" +
+                                            data[counter].firstName + "</td><td>" +
+                                            data[counter].lastName + "</td><td>" +
+                                            data[counter].ssn + "</td><td>" +
+                                            listOfCourses(data[counter]) + "</td></tr>"); //Kallar funktion för att plocka ut studentens kurser.
+
+                function listOfCourses(data) {
+                    var results = [];
+                    for (var counter = 0; counter < data.courses.length; counter++) {
+                        results.push(data.courses[counter].name);
+                    }
+                    return results;
+                }
+            }
+        }).fail(function () {
+            console.log("Error getting list of students");
+        })
+    },
     
     submitNewStudent: function () {
         
@@ -77,11 +105,11 @@ var students = {
             var ssn = $('[name="ssn"]').val();
 
             var student = {
-                Id: id,
-                FirstName: firstName,
-                LastName: lastName,
-                SSN: ssn,
-                Active: active
+                id: id,
+                firstName: firstName,
+                lastName: lastName,
+                ssn: ssn,
+                active: active
             }
 
             students.registerNewStudent(student)

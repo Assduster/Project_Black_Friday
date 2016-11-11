@@ -2,7 +2,7 @@
 
     navigation: function () {
 
-        $('#navbar li a').click(function () {
+        $('#navbar li a').on("click", function () {
             var hrefVal = $(this).attr('href');
             switch (hrefVal) {
                 case "#start":
@@ -11,21 +11,11 @@
                 case "#students":
                     students.submitSearchQuery();
                     students.submitNewStudent();
+                    students.listOfStudents();
                     break;
                 case "#courses":
-                    courses.createNewCourse();                   
+                    courses.createNewCourse();
                     break;
-                case 3:
-                    day = "Wednesday";
-                    break;
-                case 4:
-                    day = "Thursday";
-                    break;
-                case 5:
-                    day = "Friday";
-                    break;
-                case 6:
-                    day = "Saturday";
 
             }
 

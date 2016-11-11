@@ -12,7 +12,7 @@ var courses = {
             contentType: "application/json"
 
         }).done(function (data) {
-            console.log("xD");
+            console.log("xD"); //TODO 
         });
     },
     //Create a new course
@@ -27,11 +27,11 @@ var courses = {
         var term = $('[name="course-term"]').val();
 
         var course = {
-            Id: id,
-            Name: name,
-            Term: term,
-            Year: year,
-            Credits: points,
+            id: id,
+            name: name,
+            term: term,
+            year: year,
+            credits: points,
                
         }
         console.log(course)
