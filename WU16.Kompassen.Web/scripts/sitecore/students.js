@@ -37,15 +37,15 @@ var students = {
                                             data[counter].id + "</td><td>" +
                                             data[counter].firstName + "</td><td>" +
                                             data[counter].lastName + "</td><td>" +
-                                            data[counter].ssn + "</td><td>" +
-                                            listOfCourses(data[counter]) + "</td></tr>"); //Kallar funktion för att plocka ut studentens kurser.
+                                            data[counter].ssn + "</td><td><ul>" +
+                                            listOfCourses(data[counter]) + "</ul></td></tr>"); //Kallar funktion för att plocka ut studentens kurser.
 
                 function listOfCourses(data) {
                     var results = [];
                     for (var counter = 0; counter < data.courses.length; counter++) {
-                        results.push(data.courses[counter].name);
+                        results.push("<li>" + data.courses[counter].name + "</li>");
                     }
-                    return results;
+                    return results.join("");
                 }
             }
         }).fail(function () {
@@ -77,15 +77,15 @@ var students = {
                                             data[counter].id + "</td><td>" +
                                             data[counter].firstName + "</td><td>" +
                                             data[counter].lastName + "</td><td>" +
-                                            data[counter].ssn + "</td><td>" +
-                                            listOfCourses(data[counter]) + "</td></tr>"); //Kallar funktion för att plocka ut studentens kurser.
+                                            data[counter].ssn + "</td><td><ul>" +
+                                            listOfCourses(data[counter]) + "</ul></td></tr>"); //Kallar funktion för att plocka ut studentens kurser.
 
                 function listOfCourses(data) {
                     var results = [];
                     for (var counter = 0; counter < data.courses.length; counter++) {
-                        results.push(data.courses[counter].name);
+                        results.push("<li>" + data.courses[counter].name + "</li>");
                     }
-                    return results;
+                    return results.join("");
                 }
             }
         }).fail(function () {
