@@ -59,9 +59,9 @@ var courses = {
             for (var i = 0; i < data.length; i++) {
                 $("#courseListTable").append("<tr><td>" +
                                 data[i].name + "</td><td>" +
-                                data[i].credits + "</td></tr>")
+                                data[i].credits + "</td><td>" +
+                                data[i].students.length + "</td></tr>")
             }
         });
     }
-
 }
