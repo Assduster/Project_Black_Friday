@@ -41,6 +41,7 @@ var courses = {
     courseVisibility: function () {
         $('#courseDetailsForm, #courseListPlaceholder').show();
         $('#studentListPlaceholder').hide();
+        $('#courseListTable tbody').empty();
     },
     createCourseVisibility: function () {
         $('#courseListPlaceholder').show();

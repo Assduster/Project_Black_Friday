@@ -119,5 +119,6 @@ var students = {
     studentVisibility: function () {
         $('#studentListPlaceholder').show();
         $('#courseDetailsForm, #courseListPlaceholder').hide();
+        $('#studentListTable tbody').empty();
     }
 }
