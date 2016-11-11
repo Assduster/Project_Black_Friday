@@ -38,6 +38,16 @@ var courses = {
         courses.registerNewCourse(course)
     });
 },
-    
+    courseVisibility: function () {
+        $('#courseDetailsForm, #courseListPlaceholder').show();
+        $('#studentListPlaceholder').hide();
+    },
+    createCourseVisibility: function () {
+        $('#courseListPlaceholder').show();
+        $('#studentListPlaceholder, #courseDetailsForm').hide();
+    },
+    startVisibility: function () {
+        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').hide();
+    }
 
 }

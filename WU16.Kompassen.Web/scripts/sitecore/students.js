@@ -115,5 +115,9 @@ var students = {
             students.registerNewStudent(student)
 
         });
+    },
+    studentVisibility: function () {
+        $('#studentListPlaceholder').show();
+        $('#courseDetailsForm, #courseListPlaceholder').hide();
     }
 }
