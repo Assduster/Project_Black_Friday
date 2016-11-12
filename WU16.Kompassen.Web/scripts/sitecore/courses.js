@@ -117,25 +117,34 @@ var courses = {
     },
     // Puts all students listed in Course in the list of active students.
     listStudentsInCourse: function (data) {
-        $("#courseDetailsStudentListPlaceholder").empty();
+        $(".registeredStudents").text();
+        $("#studentListLabel").text("");
         console.log("xD") //remove
 
         if (data.students.length < 1)       //checks if there are students registered in the course
         {
-            $("#courseDetailsStudentListPlaceholder").append("<label>Inga registrerade studenter</label");
+            $("#studentListLabel").text("Inga registrerade studenter");
         }
 
         for (var i = 0; i < data.students.length; i++) {
-            $("#courseDetailsStudentListPlaceholder").append(
-                            "<ul><li>" +
-                            data.students[i].firstName + " "
-                            + data.students[i].lastName +
-                            " (" + data.students[i].ssn + ")"
-                )
+            $(".registeredStudents").append(
+                            "<div class='list-group-item listed-student' data-id=' "+
+                            data.students[i].id +
+                            "'>" +
+                            data.students[i].firstName +
+                            " " +
+                            data.students[i].lastName +
+                            " | " +
+                            data.students[i].ssn +
+                            "<span class=' pull-right remove-icon glyphicon glyphicon-remove'></span>" +
+                            "</div>"                         
+                    )
         }
 
 
-    }
+    },
+
+
 
 
 
