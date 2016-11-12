@@ -70,7 +70,7 @@ var courses = {
             type: "GET",
             url: url + "/api/courses/",
         }).done(function (data) {
-            console.log(data)
+            console.log(data) //remove this
             for (var i = 0; i < data.length; i++) {
                 $("#courseListTable").append("<tr><td>" +
                                 
@@ -78,9 +78,62 @@ var courses = {
                                 data[i].credits + "</td><td>" +
                                 data[i].students.length + "</td><td><span data-id='" +
                                 data[i].id +
-                                "'class='glyphicon glyphicon-edit'></span></td></tr>")
+                                "'class='edit-button glyphicon glyphicon-edit'></span></td></tr>")
             }
         });
+    },
+    //select course to edit and move it to edit form
+    selectCourseToEdit: function () {
+        $(document).on("click", ".edit-button", function () {
+            var id = $(this).attr("data-id");
+            console.log(id); //remove this
+            courses.fetchCourseById(id);
+        });
+    },
+    //get students from it's id and put it in edit form
+    fetchCourseById: function (id) {
+        $.ajax({
+            url: url + "/api/courses/" + id,
+            type: "GET"
+        }).done(function (data) {
+            console.log(data) //remove
+            $("[name='name']").val(data.name);
+            $("[name='credits'").val(data.credits);
+            $("[name='year'").val(data.year);
+            $("[name='term'").val(data.term);
+            
+            if (data.active == 1) {
+                $("[name='active'").prop("checked", true);
+            }
+            else {
+                $("[name='active'").prop("checked", false);
+            }
+            courses.listStudentsInCourse(data);
+        });
+    },
+    // Puts all students listed in Course in the list of active students.
+    listStudentsInCourse: function (data) {
+        $("#courseDetailsStudentListPlaceholder").empty();
+        console.log("xD") //remove
+
+        if (data.students.length < 1)       //checks if there are students registered in the course
+        {
+            $("#courseDetailsStudentListPlaceholder").append("<label>Inga registrerade studenter</label");
+        }
+
+        for(var i =0; i < data.students.length; i++)
+        {
+            $("#courseDetailsStudentListPlaceholder").append(
+                            "<ul><li>" +
+                            data.students[i].firstName + " " 
+                            + data.students[i].lastName +
+                            " (" + data.students[i].ssn + ")"
+                )
+        }
+
+
     }
+
+  
 
 }
