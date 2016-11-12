@@ -16,7 +16,7 @@ var students = {
                 return;
             }
 
-            $("#SearchQueryLabel").empty();         
+            $("#SearchQueryLabel").empty();
             students.searchForStudent(searchQuery);
         });
     },
@@ -68,7 +68,7 @@ var students = {
         });
     },
 
-    listOfStudents: function(){  //TODO
+    listOfStudents: function () {  //TODO
         $.ajax({
             url: url + "/api/students/",
             type: "GET"
@@ -94,9 +94,9 @@ var students = {
             console.log("Error getting list of students");
         })
     },
-    
+
     submitNewStudent: function () {
-        
+
         $("#saveStudent").on("click", function (e) {
             e.preventDefault();
 
@@ -119,9 +119,10 @@ var students = {
         });
     },
     studentVisibility: function () {
-        $('#studentListPlaceholder').fadeIn();
+        $('#start, #courseDetailsForm, #courseListPlaceholder').hide();
+        $('#studentListPlaceholder').fadeIn(300);
         $('#studentListTable tbody').empty();
-        $('#courseDetailsForm, #courseListPlaceholder').fadeOut();
-        
+
+
     }
 }

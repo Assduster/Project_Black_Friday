@@ -1,7 +1,7 @@
 ﻿var url = "http://localhost:45959/";
 
 var courses = {
-    
+
     //Register student to course
     registerStudentToCourse: function () {
         $.ajax({
@@ -9,7 +9,7 @@ var courses = {
             type: "GET"
         }).done(function (data) {
             for (var counter = 0; counter < data.length; counter++) {
-                $('#courseDetailsStudentSelectList').append("<option>" + 
+                $('#courseDetailsStudentSelectList').append("<option>" +
                     data[counter].firstName + " " +
                     data[counter].lastName + "(" +
                     data[counter].ssn + ")</option");
@@ -31,38 +31,41 @@ var courses = {
     },
     //Create a new course
     createNewCourse: function () {
-    $("#createCourse").on("click", function (e) {
-        e.preventDefault();
+        $("#createCourse").on("click", function (e) {
+            e.preventDefault();
 
-        var id = $('[name="course-id"]').val();
-        var name = $('[name="course-name"]').val();
-        var points = $('[name="course-credits"]').val();
-        var year = $('[name="course-year"]').val();
-        var term = $('[name="course-term"]').val();
+            var id = $('[name="course-id"]').val();
+            var name = $('[name="course-name"]').val();
+            var points = $('[name="course-credits"]').val();
+            var year = $('[name="course-year"]').val();
+            var term = $('[name="course-term"]').val();
 
-        var course = {
-            id: id,
-            name: name,
-            term: term,
-            year: year,
-            credits: points,
-               
-        }
-        console.log(course)
-        courses.registerNewCourse(course)
-    });
-},
+            var course = {
+                id: id,
+                name: name,
+                term: term,
+                year: year,
+                credits: points,
+
+            }
+            console.log(course)
+            courses.registerNewCourse(course)
+        });
+    },
+    // Display function, selects which elements that will be displayed at their corresponding page.
     courseVisibility: function () {
-        $('#courseDetailsForm, #courseListPlaceholder').fadeIn();
-        $('#studentListPlaceholder').fadeOut();
+        $('#start, #studentListPlaceholder').hide();
+        $('#courseDetailsForm, #courseListPlaceholder').fadeIn(300);
         $('#courseListTable tbody, #courseDetailsStudentSelectList').empty();
     },
     createCourseVisibility: function () {
-        $('#courseListPlaceholder').fadeIn();
-        $('#studentListPlaceholder, #courseDetailsForm').fadeOut();
+        $('#start, #studentListPlaceholder, #courseDetailsForm').hide();
+        $('#courseListPlaceholder').fadeIn(300);
+
     },
     startVisibility: function () {
-        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').fadeOut();
+        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').hide()
+        $('#start').fadeIn(300);
     },
     // List all courses under "kurser"
     listAllCourses: function () {
@@ -73,7 +76,7 @@ var courses = {
             console.log(data) //remove this
             for (var i = 0; i < data.length; i++) {
                 $("#courseListTable").append("<tr><td>" +
-                                
+
                                 data[i].name + "</td><td>" +
                                 data[i].credits + "</td><td>" +
                                 data[i].students.length + "</td><td><span data-id='" +
@@ -102,7 +105,7 @@ var courses = {
             $("[name='credits'").val(data.credits);
             $("[name='year'").val(data.year);
             $("[name='term'").val(data.term);
-            
+
             if (data.active == 1) {
                 $("[name='active'").prop("checked", true);
             }
@@ -122,11 +125,10 @@ var courses = {
             $("#courseDetailsStudentListPlaceholder").append("<label>Inga registrerade studenter</label");
         }
 
-        for(var i =0; i < data.students.length; i++)
-        {
+        for (var i = 0; i < data.students.length; i++) {
             $("#courseDetailsStudentListPlaceholder").append(
                             "<ul><li>" +
-                            data.students[i].firstName + " " 
+                            data.students[i].firstName + " "
                             + data.students[i].lastName +
                             " (" + data.students[i].ssn + ")"
                 )
@@ -135,6 +137,6 @@ var courses = {
 
     }
 
-  
+
 
 }

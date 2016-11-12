@@ -112,8 +112,8 @@ body {
     border-left: 10px solid darkorange;
 }
 
-.no-hover{
-    cursor:inherit;
+.no-hover {
+    cursor: inherit;
 }
 
 /* Gömmer alla fält by default - David */
