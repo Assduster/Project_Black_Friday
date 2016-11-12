@@ -117,7 +117,7 @@ var courses = {
     },
     // Puts all students listed in Course in the list of active students.
     listStudentsInCourse: function (data) {
-        $(".registeredStudents").text();
+        $(".registeredStudents").html(" ");
         $("#studentListLabel").text("");
         console.log("xD") //remove
 
