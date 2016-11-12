@@ -11,11 +11,11 @@
                     courses.startVisibility();
                     console.log(hrefVal);
                     break;
-                case "#students":
+                case "#students":    
+                    students.studentVisibility();
                     students.submitSearchQuery();
                     students.submitNewStudent();
                     students.listOfStudents();
-                    students.studentVisibility();
                     break;
                 case "#courses":
                     courses.createNewCourse();

@@ -53,16 +53,16 @@ var courses = {
     });
 },
     courseVisibility: function () {
-        $('#courseDetailsForm, #courseListPlaceholder').show();
-        $('#studentListPlaceholder').hide();
+        $('#courseDetailsForm, #courseListPlaceholder').fadeIn();
+        $('#studentListPlaceholder').fadeOut();
         $('#courseListTable tbody, #courseDetailsStudentSelectList').empty();
     },
     createCourseVisibility: function () {
-        $('#courseListPlaceholder').show();
-        $('#studentListPlaceholder, #courseDetailsForm').hide();
+        $('#courseListPlaceholder').fadeIn();
+        $('#studentListPlaceholder, #courseDetailsForm').fadeOut();
     },
     startVisibility: function () {
-        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').hide();
+        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').fadeOut();
     },
     // List all courses under "kurser"
     listAllCourses: function () {

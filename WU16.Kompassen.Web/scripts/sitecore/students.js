@@ -16,13 +16,14 @@ var students = {
                 return;
             }
 
-            $("#SearchQueryLabel").empty();
+            $("#SearchQueryLabel").empty();         
             students.searchForStudent(searchQuery);
         });
     },
 
     //Searchquery
     searchForStudent: function (searchQuery) {
+        //$('#studentListTable tbody tr').remove();
         $.ajax({
             type: "GET",
             url: url + "api/searchStudents/" + searchQuery,
@@ -47,6 +48,7 @@ var students = {
                     }
                     return results.join("");
                 }
+                $("#searchQuery").val("");
             }
         }).fail(function () {
             $("#SearchQueryLabel").html("Något gick snett. Försök igen..."); //TODO
@@ -117,8 +119,9 @@ var students = {
         });
     },
     studentVisibility: function () {
-        $('#studentListPlaceholder').show();
-        $('#courseDetailsForm, #courseListPlaceholder').hide();
+        $('#studentListPlaceholder').fadeIn();
         $('#studentListTable tbody').empty();
+        $('#courseDetailsForm, #courseListPlaceholder').fadeOut();
+        
     }
 }
