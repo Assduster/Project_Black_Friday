@@ -3,18 +3,15 @@
 var courses = {
 
     //Register student to course
-    registerStudentToCourse: function () {
-        $.ajax({
-            url: url + "/api/students/",
-            type: "GET"
-        }).done(function (data) {
-            for (var counter = 0; counter < data.length; counter++) {
-                $('#courseDetailsStudentSelectList').append("<option>" +
-                    data[counter].firstName + " " +
-                    data[counter].lastName + "(" +
-                    data[counter].ssn + ")</option");
-            }
-        })
+    addStudentToDropList: function (data, i) {
+        
+                $('#courseDetailsStudentSelectList').append("<option data-id='" +
+                    data[i].id +
+                    "'>" +
+                    data[i].firstName + " " +
+                    data[i].lastName + "(" +
+                    data[i].ssn + ")</option");
+          
     },
     //Add course to db
     registerNewCourse: function (course) {
@@ -94,8 +91,10 @@ var courses = {
             courses.fetchCourseById(id);
         });
     },
-    //get students from it's id and put it in edit form
+    //get course from it's id and put it in edit form
     fetchCourseById: function (id) {
+        $("#courseDetailsStudentSelectList").text("");
+        $(".registeredStudents").text("");
         $.ajax({
             url: url + "/api/courses/" + id,
             type: "GET"
@@ -112,37 +111,65 @@ var courses = {
             else {
                 $("[name='active'").prop("checked", false);
             }
-            courses.listStudentsInCourse(data);
+            var courseId = data.id;
+            courses.isStudentInCourse(courseId);
         });
+        
     },
-    // Puts all students listed in Course in the list of active students.
-    listStudentsInCourse: function (data) {
-        $(".registeredStudents").html(" ");
+    // Puts student listed in Course in the list of active students.
+    addStudentToRegisteredList: function (data, i) {        
         $("#studentListLabel").text("");
         console.log("xD") //remove
-
-        if (data.students.length < 1)       //checks if there are students registered in the course
-        {
-            $("#studentListLabel").text("Inga registrerade studenter");
-        }
-
-        for (var i = 0; i < data.students.length; i++) {
+        
             $(".registeredStudents").append(
                             "<div class='list-group-item listed-student' data-id=' "+
-                            data.students[i].id +
+                            data[i].id +
                             "'>" +
-                            data.students[i].firstName +
+                            data[i].firstName +
                             " " +
-                            data.students[i].lastName +
+                            data[i].lastName +
                             " | " +
-                            data.students[i].ssn +
+                            data[i].ssn +
                             "<span class=' pull-right remove-icon glyphicon glyphicon-remove'></span>" +
                             "</div>"                         
                     )
-        }
+        
 
 
     },
+
+    isStudentInCourse: function (courseId) {
+        console.log(courseId)
+
+        $.ajax({
+            type: "GET",
+            url: url + "/api/students/",
+
+        }).done(function (data) {
+            for (var i = 0; i < data.length; i++) {
+
+                for (var x = 0; x < data[i].courses.length; x++) {
+                    if (courseId == data[i].courses[x].id) {
+                        courses.addStudentToRegisteredList(data, i); //add studented in list of registered students
+                        break;
+                    }
+
+                    
+                    
+                }
+                
+                if (x == 0 || data[i].courses[x] == undefined || !(courseId == data[i].courses[x].id)) {
+                    courses.addStudentToDropList(data, i); //add student in dropdown list of unregistered students
+                    
+                }
+
+               
+                    
+            }
+        })
+
+
+    }
 
 
 
