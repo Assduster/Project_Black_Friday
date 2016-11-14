@@ -52,11 +52,12 @@ var courses = {
     courseVisibility: function () {
         $('#start, #studentListPlaceholder').hide();
         $('#courseDetailsForm, #courseListPlaceholder').fadeIn(300);
-        $('#courseListTable tbody, #courseDetailsStudentSelectList').empty();
+        $('#courseListTable tbody, #courseDetailsStudentSelectList, .registeredStudents').empty();
+        courses.emptyEditForm();
 
     },
     startVisibility: function () {
-        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').hide()
+        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder, ').hide()
         $('#start').fadeIn(300);
     },
     // List all courses under "kurser"
@@ -79,7 +80,7 @@ var courses = {
     },
     //select course to edit and move it to edit form
     selectCourseToEdit: function () {
-        $(document).on("click", ".edit-button", function () {
+        $(document).unbind().on("click", ".edit-button", function () {
             $("html, body").animate({ scrollTop: 0 }, "slow");
             var id = $(this).attr("data-id");
             console.log(id); //remove this
@@ -88,8 +89,8 @@ var courses = {
     },
     //get course from it's id and put it in edit form
     fetchCourseById: function (id) {
-        $("#courseDetailsStudentSelectList").text("");
-        $(".registeredStudents").text("");
+        $("#courseDetailsStudentSelectList").empty();
+        $(".registeredStudents").empty();
         $.ajax({
             url: url + "/api/courses/" + id,
             type: "GET"
@@ -164,7 +165,21 @@ var courses = {
         })
 
 
+    },
+
+    emptyEditForm: function () {
+        $("[name='name']").val("");
+        $("[name='credits'").val("");
+        $("[name='year'").val("");
+        $("[name='term'").val("");
+
+        $("[name='name']").attr("placeholder", "Namn");
+        $("[name='credits'").attr("placeholder", "Poäng");
+        $("[name='year'").attr("placeholder", "2015");
+        $("[name='term'").attr("placeholder", "Termin");
     }
+
+        
 
 
 
