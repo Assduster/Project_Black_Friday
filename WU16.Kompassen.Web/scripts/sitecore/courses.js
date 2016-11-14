@@ -154,7 +154,7 @@ var courses = {
                     
                 }
                 
-                if (x == 0 || data[i].courses[x] == undefined || !(courseId == data[i].courses[x].id)) {
+                if (data[i].courses[x] == undefined || !(courseId == data[i].courses[x].id)) {
                     courses.addStudentToDropList(data, i); //add student in dropdown list of unregistered students
                     
                 }
