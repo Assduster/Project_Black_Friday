@@ -4,7 +4,7 @@ var students = {
 
     submitSearchQuery: function () {
         //Search for a student
-        $("#searchStudentForm > div button").on("click", function (e) {
+        $("#searchStudentForm > div button").off("click").on("click", function (e) {
 
             $("#studentListTable > tbody").empty();
             e.preventDefault();
@@ -23,12 +23,13 @@ var students = {
 
     //Searchquery
     searchForStudent: function (searchQuery) {
-        $('#studentListTable tbody tr').remove();
+        //$('#studentListTable tbody tr').remove();
         $.ajax({
             type: "GET",
             url: url + "api/searchStudents/" + searchQuery,
         }).done(function (data) {
 
+            //var data = students.listOfStudents;
 
             if (data.length < 1) {  //Om det inte retuneras en student
                 $("#SearchQueryLabel").html("Ingen student hittades. Försök igen...");
