@@ -54,10 +54,6 @@ var courses = {
         $('#start, #studentListPlaceholder').hide();
         $('#courseDetailsForm, #courseListPlaceholder').fadeIn(300);
         $('#courseListTable tbody, #courseDetailsStudentSelectList').empty();
-    },
-    createCourseVisibility: function () {
-        $('#start, #studentListPlaceholder, #courseDetailsForm').hide();
-        $('#courseListPlaceholder').fadeIn(300);
 
     },
     startVisibility: function () {
