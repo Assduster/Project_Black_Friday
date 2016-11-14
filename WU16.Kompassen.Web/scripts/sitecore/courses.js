@@ -5,6 +5,7 @@ var courses = {
     addEventHandlers: function () {
         courses.createNewCourse();
         courses.selectCourseToEdit();
+        courses.deleteCourse();
         students.submitSearchQuery();
         students.submitNewStudent();
 
@@ -82,7 +83,9 @@ var courses = {
                                 data[i].credits + "</td><td>" +
                                 data[i].students.length + "</td><td><span data-id='" +
                                 data[i].id +
-                                "'class='edit-button glyphicon glyphicon-edit'></span></td></tr>")
+                                "'class='edit-button glyphicon glyphicon-edit'></span><span data-id='" +
+                                data[i].id +
+                                "'class='remove-button glyphicon glyphicon-trash'></span></td></tr>")
             }
         });
     },
@@ -185,6 +188,25 @@ var courses = {
         $("[name='credits'").attr("placeholder", "Poäng");
         $("[name='year'").attr("placeholder", "2015");
         $("[name='term'").attr("placeholder", "Termin");
+    },
+
+    deleteCourse: function () {
+        $("tbody").on("click", ".remove-button", function () {
+            var id = $(this).data("id");
+            var remove = confirm("Bekräfta borttagning av kurs!");
+            if(remove)
+            {
+                $.ajax({
+
+
+                }).done(function () {
+
+                    courses.listAllCourses();
+                });
+            }
+
+
+        });
     }
 
         
