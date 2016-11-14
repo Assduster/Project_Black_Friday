@@ -29,6 +29,8 @@ var students = {
             url: url + "api/searchStudents/" + searchQuery,
         }).done(function (data) {
 
+            var data = students.listOfStudents;
+
             if (data.length < 1) {  //Om det inte retuneras en student
                 $("#SearchQueryLabel").html("Ingen student hittades. Försök igen...");
             }

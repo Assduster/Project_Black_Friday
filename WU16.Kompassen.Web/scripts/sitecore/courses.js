@@ -10,8 +10,7 @@ var courses = {
                     "'>" +
                     data[i].firstName + " " +
                     data[i].lastName + "(" +
-                    data[i].ssn + ")</option");
-          
+                    data[i].ssn + ")</option");         
     },
     //Add course to db
     registerNewCourse: function (course) {
