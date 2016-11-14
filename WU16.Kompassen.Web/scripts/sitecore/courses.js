@@ -2,6 +2,14 @@
 
 var courses = {
 
+    addEventHandlers: function () {
+        courses.createNewCourse();
+        courses.selectCourseToEdit();
+        students.submitSearchQuery();
+        students.submitNewStudent();
+
+    },
+
     //Register student to course
     addStudentToDropList: function (data, i) {
         
@@ -80,7 +88,7 @@ var courses = {
     },
     //select course to edit and move it to edit form
     selectCourseToEdit: function () {
-        $(document).unbind().on("click", ".edit-button", function () {
+        $(document).on("click", ".edit-button", function () {
             $("html, body").animate({ scrollTop: 0 }, "slow");
             var id = $(this).attr("data-id");
             console.log(id); //remove this

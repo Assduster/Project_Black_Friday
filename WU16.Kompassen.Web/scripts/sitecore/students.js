@@ -2,9 +2,11 @@
 
 var students = {
 
+
+
     submitSearchQuery: function () {
         //Search for a student
-        $("#searchStudentForm > div button").off("click").on("click", function (e) {
+        $("#searchStudentForm > div button").on("click", function (e) {
 
             $("#studentListTable > tbody").empty();
             e.preventDefault();

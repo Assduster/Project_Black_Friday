@@ -13,18 +13,13 @@
                     break;
                 case "#students":    
                     students.studentVisibility();
-                    students.submitSearchQuery();
-                    students.submitNewStudent();
                     students.listOfStudents();
                     break;
                 case "#courses":
-                    courses.createNewCourse();
                     courses.courseVisibility();
                     courses.listAllCourses();
-                    courses.selectCourseToEdit();
                     break;
                 case "#addCourse":
-                    courses.createNewCourse();
                     courses.createCourseVisibility();
             }
 
