@@ -23,9 +23,7 @@
                     courses.listAllCourses();
                     courses.selectCourseToEdit();
                     break;
-                case "#addCourse":
-                    courses.createNewCourse();
-                    courses.createCourseVisibility();
+                
             }
 
 
