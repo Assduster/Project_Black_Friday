@@ -66,7 +66,7 @@ var courses = {
 
     },
     startVisibility: function () {
-        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder, ').hide()
+        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').hide()
         $('#start').fadeIn(300);
     },
     // List all courses under "kurser"
