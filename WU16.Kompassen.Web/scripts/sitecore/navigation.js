@@ -11,7 +11,7 @@
                     layout.startVisibility();
                     console.log(hrefVal);
                     break;
-                case "#students":    
+                case "#students":
                     layout.studentVisibility();
                     students.listOfStudents();
                     break;
@@ -22,8 +22,6 @@
                 case "#addCourse":
                     courses.createCourseVisibility();
             }
-
-
-        })
+        });
     }
 }

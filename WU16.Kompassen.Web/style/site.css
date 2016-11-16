@@ -120,3 +120,26 @@ body {
 #courseDetailsForm, #courseListPlaceholder, #studentListPlaceholder {
     display: none;
 }
+
+.grid {
+    display: inline-block;
+    margin: 20px;
+    border: 2px solid #428bca;
+    border-radius: 10px;
+    width: 25%;
+}
+
+.grid h1 {
+    font-size: 22px;
+    text-align: center;
+    background: #428bca;
+    margin-top: 0;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px 5px 0 0;
+    color: white;
+}
+
+.grid div {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
