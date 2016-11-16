@@ -16,4 +16,4 @@ var layout = {
         $('#studentListPlaceholder').fadeIn(300);
         $('#studentListTable tbody').empty();
     }
-}
+} 

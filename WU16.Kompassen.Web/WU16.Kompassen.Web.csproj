@@ -147,9 +147,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handlers\XHttpMethodOverrideDelegatingHandler.cs" />
-    <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\Status.cs" />
-    <Compile Include="Models\Student.cs" />
+    <Compile Include="Handlers\Models\Course.cs" />
+    <Compile Include="Handlers\Models\Status.cs" />
+    <Compile Include="Handlers\Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +178,7 @@
     <Content Include="scripts\sitecore\navigation.js" />
     <Content Include="scripts\sitecore\layout.js" />
     <Content Include="scripts\sitecore\students.js" />
+    <Content Include="scripts\sitecore\Utilities.js" />
     <Content Include="style\bootstraptheme.css" />
     <Content Include="style\bootstrap.css" />
     <Content Include="style\bootstrap.min.css" />
