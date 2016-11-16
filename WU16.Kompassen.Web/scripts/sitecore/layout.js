@@ -10,6 +10,7 @@ var layout = {
         $('#courseListTable tbody, #courseDetailsStudentSelectList, .registeredStudents').empty();
         courses.emptyEditForm();
 
+
     },
     studentVisibility: function () {
         $('#start, #courseDetailsForm, #courseListPlaceholder, #defaultPlaceholder').hide();

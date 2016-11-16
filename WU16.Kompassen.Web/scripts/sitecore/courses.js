@@ -11,6 +11,7 @@ var courses = {
         courses.saveChangesToCourse();
         courses.registerStudentToCourse();
         courses.unRegisterStudentToCourse();
+        courses.cancelEditCourse();
     },
 
 
@@ -206,7 +207,7 @@ var courses = {
     saveChangesToCourse: function () {
         $("#sendChange").on("click", function (e) {
             e.preventDefault();
-            var isActive = $("[name='active']").is("checked");
+            var isActive = $('#checkboxActive').is(':checked');
             var students = [];
             var div = document.getElementById('registeredStudents');
             var divs = div.getElementsByTagName('div');
@@ -244,6 +245,9 @@ var courses = {
                 $("tbody").empty();
                 courses.emptyEditForm();
                 courses.listAllCourses();
+                $('html, body').animate({
+                    scrollTop: $("#courseListPlaceholder").offset().top
+                }, 1000);
             });
         });
     },
@@ -301,6 +305,16 @@ var courses = {
               lastName + "(" +
               ssn + ")</option");
             $(this).parent(".listed-student").remove();
+        });
+    },
+
+    cancelEditCourse: function () {
+        $("#cancelButton").on("click", function (e) {
+            e.preventDefault();
+            courses.emptyEditForm();
+            $('html, body').animate({
+                scrollTop: $("#courseListPlaceholder").offset().top
+            }, 1000);
         });
     }
 }
