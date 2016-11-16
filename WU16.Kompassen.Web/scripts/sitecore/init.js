@@ -14,12 +14,10 @@
                 case "#students":    
                     layout.studentVisibility();
                     students.listOfStudents();
-                    students.sortStudents();
                     break;
                 case "#courses":
                     layout.courseVisibility();
                     courses.listAllCourses();
-                    courses.sortCourses();
                     break;
                 case "#addCourse":
                     courses.createCourseVisibility();
