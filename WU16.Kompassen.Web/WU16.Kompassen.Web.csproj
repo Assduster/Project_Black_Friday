@@ -175,7 +175,7 @@
     <Content Include="scripts\respond.matchmedia.addListener.js" />
     <Content Include="scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="scripts\respond.min.js" />
-    <Content Include="scripts\sitecore\init.js" />
+    <Content Include="scripts\sitecore\navigation.js" />
     <Content Include="scripts\sitecore\layout.js" />
     <Content Include="scripts\sitecore\students.js" />
     <Content Include="style\bootstraptheme.css" />
@@ -190,7 +190,6 @@
     <None Include="Properties\PublishProfiles\api.wu15.se.pubxml" />
     <None Include="Properties\PublishProfiles\Azure.pubxml" />
     <None Include="Properties\PublishProfiles\kompassen.pubxml" />
-    <None Include="scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="scripts\jquery.easing.1.3.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="scripts\_references.js" />
