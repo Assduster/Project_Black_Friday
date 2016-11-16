@@ -2,6 +2,32 @@
 
 var courses = {
 
+    addEventHandlers: function () {
+        courses.createNewCourse();
+        courses.selectCourseToEdit();
+        courses.deleteCourse();
+        students.submitSearchQuery();
+        students.submitNewStudent();
+
+    },
+
+    sortCourses: function () {
+        $('#courseListTable th').click(function () {
+            var table = $(this).parents('table').eq(0)
+            var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+            this.asc = !this.asc
+            if (!this.asc) { rows = rows.reverse() }
+            for (var i = 0; i < rows.length; i++) { table.append(rows[i]) }
+        })
+        function comparer(index) {
+            return function (a, b) {
+                var valA = getCellValue(a, index), valB = getCellValue(b, index)
+                return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB)
+            }
+        }
+        function getCellValue(row, index) { return $(row).children('td').eq(index).html() }
+    },
+
     //Register student to course
     addStudentToDropList: function (data, i) {
         
@@ -10,8 +36,7 @@ var courses = {
                     "'>" +
                     data[i].firstName + " " +
                     data[i].lastName + "(" +
-                    data[i].ssn + ")</option");
-          
+                    data[i].ssn + ")</option");         
     },
     //Add course to db
     registerNewCourse: function (course) {
@@ -53,7 +78,8 @@ var courses = {
     courseVisibility: function () {
         $('#start, #studentListPlaceholder').hide();
         $('#courseDetailsForm, #courseListPlaceholder').fadeIn(300);
-        $('#courseListTable tbody, #courseDetailsStudentSelectList').empty();
+        $('#courseListTable tbody, #courseDetailsStudentSelectList, .registeredStudents').empty();
+        courses.emptyEditForm();
 
     },
     startVisibility: function () {
@@ -74,7 +100,9 @@ var courses = {
                                 data[i].credits + "</td><td>" +
                                 data[i].students.length + "</td><td><span data-id='" +
                                 data[i].id +
-                                "'class='edit-button glyphicon glyphicon-edit'></span></td></tr>")
+                                "'class='edit-button glyphicon glyphicon-edit'></span><span data-id='" +
+                                data[i].id +
+                                "'class='remove-button glyphicon glyphicon-trash'></span></td></tr>")
             }
         });
     },
@@ -89,8 +117,8 @@ var courses = {
     },
     //get course from it's id and put it in edit form
     fetchCourseById: function (id) {
-        $("#courseDetailsStudentSelectList").text("");
-        $(".registeredStudents").text("");
+        $("#courseDetailsStudentSelectList").empty();
+        $(".registeredStudents").empty();
         $.ajax({
             url: url + "/api/courses/" + id,
             type: "GET"
@@ -154,7 +182,7 @@ var courses = {
                     
                 }
                 
-                if (x == 0 || data[i].courses[x] == undefined || !(courseId == data[i].courses[x].id)) {
+                if (data[i].courses[x] == undefined || !(courseId == data[i].courses[x].id)) {
                     courses.addStudentToDropList(data, i); //add student in dropdown list of unregistered students
                     
                 }
@@ -165,7 +193,40 @@ var courses = {
         })
 
 
+    },
+
+    emptyEditForm: function () {
+        $("[name='name']").val("");
+        $("[name='credits'").val("");
+        $("[name='year'").val("");
+        $("[name='term'").val("");
+
+        $("[name='name']").attr("placeholder", "Namn");
+        $("[name='credits'").attr("placeholder", "Poäng");
+        $("[name='year'").attr("placeholder", "2015");
+        $("[name='term'").attr("placeholder", "Termin");
+    },
+
+    deleteCourse: function () {
+        $("tbody").on("click", ".remove-button", function () {
+            var id = $(this).data("id");
+            var remove = confirm("Bekräfta borttagning av kurs!");
+            if(remove)
+            {
+                $.ajax({
+
+
+                }).done(function () {
+
+                    courses.listAllCourses();
+                });
+            }
+
+
+        });
     }
+
+        
 
 
 
