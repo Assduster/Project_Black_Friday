@@ -59,7 +59,7 @@
                                 <select class="form-control" id="courseDetailsStudentSelectList"></select>
                             </div>
                             <div style="float: left; padding: 3px;">
-                                <button type="button" id="registerSelectedStudentButton" class="btn btn-primary btn-sm">Registrera</button>
+                                <button id="registerButton"class="btn btn-primary btn-sm">Registrera</button>
                             </div>
                             @*</div>*@
                             <div style="clear: both;"></div>
@@ -67,7 +67,7 @@
 
                             <div class="list-group" id="courseDetailsStudentListPlaceholder">
                                 <label id="studentListLabel"></label>
-                                <div class="list-group registeredStudents">
+                                <div id="registeredStudents" class="list-group">
 
                                 </div>
                                 
@@ -78,7 +78,7 @@
                 </div>
 
                 <div style="clear: both; padding: 10px; padding-top: 0px;">
-                    <button type="submit" class="btn btn-success">Spara</button>
+                    <button id="sendChange" class="btn btn-success">Spara</button>
                     <button type="button" id="courseDetailsCancelButton" class="btn btn-warning">Stäng</button>
                 </div>
 
