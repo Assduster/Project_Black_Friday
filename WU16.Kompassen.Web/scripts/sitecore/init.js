@@ -8,16 +8,16 @@
             $(this).parent().addClass('active');
             switch (hrefVal) {
                 case "#start":
-                    courses.startVisibility();
+                    layout.startVisibility();
                     console.log(hrefVal);
                     break;
                 case "#students":    
-                    students.studentVisibility();
+                    layout.studentVisibility();
                     students.listOfStudents();
                     students.sortStudents();
                     break;
                 case "#courses":
-                    courses.courseVisibility();
+                    layout.courseVisibility();
                     courses.listAllCourses();
                     courses.sortCourses();
                     break;

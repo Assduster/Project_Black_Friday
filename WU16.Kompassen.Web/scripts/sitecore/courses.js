@@ -8,7 +8,6 @@ var courses = {
         courses.deleteCourse();
         students.submitSearchQuery();
         students.submitNewStudent();
-
     },
 
     sortCourses: function () {
@@ -30,7 +29,6 @@ var courses = {
 
     //Register student to course
     addStudentToDropList: function (data, i) {
-        
                 $('#courseDetailsStudentSelectList').append("<option data-id='" +
                     data[i].id +
                     "'>" +
@@ -38,9 +36,9 @@ var courses = {
                     data[i].lastName + "(" +
                     data[i].ssn + ")</option");         
     },
+
     //Add course to db
     registerNewCourse: function (course) {
-
         $.ajax({
             url: url + "/api/courses/",
             type: "POST",
@@ -51,6 +49,7 @@ var courses = {
             console.log("xD"); //TODO 
         });
     },
+
     //Create a new course
     createNewCourse: function () {
         $("#createCourse").on("click", function (e) {
@@ -74,18 +73,7 @@ var courses = {
             courses.registerNewCourse(course)
         });
     },
-    // Display function, selects which elements that will be displayed at their corresponding page.
-    courseVisibility: function () {
-        $('#start, #studentListPlaceholder').hide();
-        $('#courseDetailsForm, #courseListPlaceholder').fadeIn(300);
-        $('#courseListTable tbody, #courseDetailsStudentSelectList, .registeredStudents').empty();
-        courses.emptyEditForm();
 
-    },
-    startVisibility: function () {
-        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').hide()
-        $('#start').fadeIn(300);
-    },
     // List all courses under "kurser"
     listAllCourses: function () {
         $.ajax({
@@ -106,6 +94,7 @@ var courses = {
             }
         });
     },
+
     //select course to edit and move it to edit form
     selectCourseToEdit: function () {
         $(document).on("click", ".edit-button", function () {
@@ -115,6 +104,7 @@ var courses = {
             courses.fetchCourseById(id);
         });
     },
+
     //get course from it's id and put it in edit form
     fetchCourseById: function (id) {
         $("#courseDetailsStudentSelectList").empty();
@@ -140,6 +130,7 @@ var courses = {
         });
         
     },
+
     // Puts student listed in Course in the list of active students.
     addStudentToRegisteredList: function (data, i) {        
         $("#studentListLabel").text("");
@@ -157,9 +148,6 @@ var courses = {
                             "<span class=' pull-right remove-icon glyphicon glyphicon-remove'></span>" +
                             "</div>"                         
                     )
-        
-
-
     },
 
     isStudentInCourse: function (courseId) {
@@ -177,22 +165,13 @@ var courses = {
                         courses.addStudentToRegisteredList(data, i); //add studented in list of registered students
                         break;
                     }
-
-                    
-                    
                 }
                 
                 if (data[i].courses[x] == undefined || !(courseId == data[i].courses[x].id)) {
                     courses.addStudentToDropList(data, i); //add student in dropdown list of unregistered students
-                    
                 }
-
-               
-                    
             }
         })
-
-
     },
 
     emptyEditForm: function () {
@@ -215,21 +194,10 @@ var courses = {
             {
                 $.ajax({
 
-
                 }).done(function () {
-
                     courses.listAllCourses();
                 });
             }
-
-
         });
     }
-
-        
-
-
-
-
-
 }

@@ -70,6 +70,7 @@ var students = {
             $("#SearchQueryLabel").html("Något gick snett. Försök igen..."); //TODO
         });
     },
+
     //Add a student
     registerNewStudent: function (student) {
 
@@ -112,7 +113,6 @@ var students = {
     },
 
     submitNewStudent: function () {
-
         $("#saveStudent").on("click", function (e) {
             e.preventDefault();
 
@@ -133,12 +133,5 @@ var students = {
             students.registerNewStudent(student)
 
         });
-    },
-    studentVisibility: function () {
-        $('#start, #courseDetailsForm, #courseListPlaceholder').hide();
-        $('#studentListPlaceholder').fadeIn(300);
-        $('#studentListTable tbody').empty();
-
-
     }
 }

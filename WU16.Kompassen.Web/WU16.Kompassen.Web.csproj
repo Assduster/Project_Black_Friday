@@ -176,6 +176,7 @@
     <Content Include="scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="scripts\respond.min.js" />
     <Content Include="scripts\sitecore\init.js" />
+    <Content Include="scripts\sitecore\layout.js" />
     <Content Include="scripts\sitecore\students.js" />
     <Content Include="style\bootstraptheme.css" />
     <Content Include="style\bootstrap.css" />
