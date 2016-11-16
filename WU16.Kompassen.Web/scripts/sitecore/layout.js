@@ -15,5 +15,34 @@ var layout = {
         $('#start, #courseDetailsForm, #courseListPlaceholder, #defaultPlaceholder').hide();
         $('#studentListPlaceholder').fadeIn(300);
         $('#studentListTable tbody').empty();
-    }
+    },
+
+    navigation: function () {
+
+            $('.navigation a').on("click", function () {
+                var hrefVal = $(this).attr('href');
+                $('#navbar li').removeClass('active');
+                $(this).parent().addClass('active');
+                switch (hrefVal) {
+                    case "#start":
+                        layout.startVisibility();
+                        
+                        break;
+                    case "#students":
+                        layout.studentVisibility();
+                        students.listStudentsToView();
+                        break;
+                    case "#courses":
+                        layout.courseVisibility();
+                        courses.listAllCourses();
+                        break;
+                    
+                }
+            });
+        }
+    
+
+    
 }
+
+    
