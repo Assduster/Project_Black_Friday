@@ -1,6 +1,9 @@
 ﻿var url = "http://localhost:45959/"; //satt som global för att fungera i alla GET/POST.
 
 var students = {
+
+
+
     submitSearchQuery: function () {
         //Search for a student
         $("#searchStudentForm > div button").on("click", function (e) {

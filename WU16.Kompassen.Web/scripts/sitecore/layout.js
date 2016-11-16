@@ -2,7 +2,7 @@
 var layout = {
     startVisibility: function () {
         $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').hide()
-        $('#start').fadeIn(300);
+
     },
     courseVisibility: function () {
         $('#start, #studentListPlaceholder').hide();
@@ -16,4 +16,4 @@ var layout = {
         $('#studentListPlaceholder').fadeIn(300);
         $('#studentListTable tbody').empty();
     }
-} 
+}
