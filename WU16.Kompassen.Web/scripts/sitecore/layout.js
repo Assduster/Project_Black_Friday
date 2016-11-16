@@ -1,7 +1,7 @@
 ﻿// Display functions, selects which elements that will be displayed at their corresponding page.
 var layout = {
     startVisibility: function () {
-        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').hide();
+        $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').hide()
         $('#defaultPlaceholder').fadeIn(300);
     },
     courseVisibility: function () {

@@ -13,7 +13,7 @@
                     break;
                 case "#students":
                     layout.studentVisibility();
-                    students.listOfStudents();
+                    students.listStudentsToView();
                     break;
                 case "#courses":
                     layout.courseVisibility();

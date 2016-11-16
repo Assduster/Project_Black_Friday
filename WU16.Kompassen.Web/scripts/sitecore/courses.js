@@ -56,7 +56,7 @@ var courses = {
                 year: year,
                 credits: points,
 
-            };
+            }
             console.log(course)
             courses.registerNewCourse(course)
         });

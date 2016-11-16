@@ -19,7 +19,7 @@ namespace WU16.Kompassen.Web
                         "~/scripts/sitecore/app.js",
                         "~/scripts/sitecore/students.js",
                         "~/scripts/sitecore/courses.js",
-                        "~/scripts/sitecore/navigation.js",
+                        "~/scripts/sitecore/init.js",
                         "~/scripts/sitecore/layout.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
