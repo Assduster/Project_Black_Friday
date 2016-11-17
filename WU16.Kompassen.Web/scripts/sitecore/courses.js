@@ -12,6 +12,7 @@ var courses = {
         courses.registerStudentToCourse();
         courses.unRegisterStudentToCourse();
         courses.cancelEditCourse();
+        courses.defaultPlaceholder();
     },
 
 
@@ -97,6 +98,12 @@ var courses = {
             var id = $(this).attr("data-id");
             console.log(id); //remove this
             courses.fetchCourseById(id);
+            $('#courseListTable tbody').empty();
+
+            courses.listAllCourses();
+
+            $('#defaultPlaceholder').hide();
+            $('#courseDetailsForm, #courseListPlaceholder').fadeIn(300);
         });
     },
 
@@ -316,5 +323,29 @@ var courses = {
                 scrollTop: $("#courseListPlaceholder").offset().top
             }, 1000);
         });
-    }
+    },
+    defaultPlaceholder: function () {
+        $.ajax({
+            type: "GET",
+            url: url + "api/courses/",
+        }).done(function (data) {
+            for (var i = 0; i < data.length; i++) {
+                $("#defaultPlaceholder").append("<div id='" + data[i].id + "'class='grid'><h1>" +
+                                data[i].name + "<span style='float: right' data-id='" +
+                                data[i].id + "'class='edit-button glyphicon glyphicon-edit'></h1><div>Kursstart: " +
+                                data[i].term + " " +
+                                data[i].year + "</div><div>Antal poäng: " +
+                                data[i].credits + "</div><div>Kursen har " +
+                                data[i].students.length + " registrerade studenter</div></div>")
+
+                if (data[i].active) {
+                    $("#" + data[i].id).append('<span class="courseActive glyphicon glyphicon-thumbs-up"></span>')
+
+                } else {
+                    $("#" + data[i].id).append('<span class="courseNotActive glyphicon glyphicon-thumbs-down"></span>')
+                }
+            }
+
+        });
+    },
 }
