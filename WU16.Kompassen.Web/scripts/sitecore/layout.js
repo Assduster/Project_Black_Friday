@@ -3,12 +3,16 @@ var layout = {
     startVisibility: function () {
         $('#studentListPlaceholder, #courseDetailsForm, #courseListPlaceholder').hide()
         $('#defaultPlaceholder').fadeIn(300);
+        $("#defaultPlaceholder").empty();
     },
     courseVisibility: function () {
         $('#studentListPlaceholder, #defaultPlaceholder').hide();
         $('#courseDetailsForm, #courseListPlaceholder').fadeIn(300);
         $('#courseListTable tbody, #courseDetailsStudentSelectList, .registeredStudents').empty();
         courses.emptyEditForm();
+        $('html, body').animate({
+            scrollTop: $("#courseListPlaceholder").offset().top
+        }, 1000);
 
 
     },
@@ -27,6 +31,7 @@ var layout = {
                 switch (hrefVal) {
                     case "#start":
                         layout.startVisibility();
+                        courses.defaultPlaceholder();
                         
                         break;
                     case "#students":

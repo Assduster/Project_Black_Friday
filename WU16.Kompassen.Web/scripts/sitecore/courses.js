@@ -43,7 +43,9 @@ var courses = {
 
         }).done(function (data) {
             console.log("xD"); //TODO 
+            courses.emptyAddCourseForm();
         });
+
     },
 
     //Create a new course
@@ -348,4 +350,17 @@ var courses = {
 
         });
     },
+    //empties the add course form.
+    emptyAddCourseForm: function () {
+        $('[name="course-id"]').val("");
+        $('[name="course-name"]').val("");
+        $('[name="course-credits"]').val("");
+        $('[name="course-year"]').val("");
+        $('[name="course-term"]').val("");
+        $("tbody").empty();
+        courses.listAllCourses();
+        $('html, body').animate({
+            scrollTop: $("#courseListPlaceholder").offset().top
+        }, 1000);
+    }
 }
