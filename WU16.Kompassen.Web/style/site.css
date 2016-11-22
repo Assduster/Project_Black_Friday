@@ -159,6 +159,6 @@ body {
     font-size: 20px;
 }
 
-thead th {
-    cursor: url(https://b.thumbs.redditmedia.com/4ZxOF0Jq21KHWSQUDunb3iUrawRW8aALcFq-5bb9NkM.png), pointer;
+thead th, a, .glyphicon, button {
+    cursor: url(https://b.thumbs.redditmedia.com/4ZxOF0Jq21KHWSQUDunb3iUrawRW8aALcFq-5bb9NkM.png), pointer !important;
 }
