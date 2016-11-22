@@ -84,7 +84,7 @@ var courses = {
 
                                 data[i].name + "</td><td>" +
                                 data[i].credits + "</td><td>" +
-                                data[i].students.length + "</td><td><span data-id='" +
+                                data[i].students.length + "</td><td><span style='margin-right: 10px;' data-id='" +
                                 data[i].id +
                                 "'class='edit-button glyphicon glyphicon-edit'></span><span data-id='" +
                                 data[i].id +
