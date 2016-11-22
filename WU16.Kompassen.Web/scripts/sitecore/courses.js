@@ -90,6 +90,9 @@ var courses = {
                                 data[i].id +
                                 "'class='remove-button glyphicon glyphicon-trash'></span></td></tr>")
             }
+            $("#courseListTable tbody td").text(function (index, text) {
+                return text.replace(',', '.');
+            });
         });
     },
 

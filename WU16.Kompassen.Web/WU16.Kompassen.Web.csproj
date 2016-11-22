@@ -178,7 +178,7 @@
     <Content Include="scripts\sitecore\init.js" />
     <Content Include="scripts\sitecore\layout.js" />
     <Content Include="scripts\sitecore\students.js" />
-    <Content Include="scripts\sitecore\Utilities.js" />
+    <Content Include="scripts\sitecore\utilities.js" />
     <Content Include="style\bootstraptheme.css" />
     <Content Include="style\bootstrap.css" />
     <Content Include="style\bootstrap.min.css" />
