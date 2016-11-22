@@ -9,17 +9,13 @@ body {
     border: none;
 }
 
-    .navbar-inverse .navbar-brand {
+.navbar-inverse .navbar-brand {
         color: #fff;
-    }
+}
 
-    .navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-nav > li > a {
         color: #fff;
-    }
-
-/*.navbar {
-    min-height: 55px;
-}*/
+}
 
 .navbar-brand {
     float: left;
@@ -49,6 +45,7 @@ body {
     margin-left: auto;
     margin-right: 0;
     margin-left: 0;
+    max-width: 100% !important;
 }
 
 .input-group .form-control {
@@ -126,8 +123,8 @@ body {
     margin: 20px;
     border: 2px solid #428bca;
     border-radius: 10px;
-    width: 25%;
-    min-width:250px;
+    width: 22%;
+    min-width: 280px;
 }
 
 .grid h1 {
@@ -160,5 +157,5 @@ body {
 }
 
 thead th, a, .glyphicon, button {
-    cursor: url(https://b.thumbs.redditmedia.com/4ZxOF0Jq21KHWSQUDunb3iUrawRW8aALcFq-5bb9NkM.png), pointer !important;
+    cursor: url(http://www.rw-designer.com/cursor-view/4852.gif), pointer !important;
 }
