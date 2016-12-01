@@ -13,7 +13,7 @@ namespace WU16.Kompassen.Web.API
 
         public IEnumerable<Student> Get()
         {
-            var students = db.Students.Include("Courses").OrderBy(x => x.FirstName);
+            var students = db.Students.Include("Courses").OrderByDescending(x => x.Active);
 
             return students;
         }

@@ -1,6 +1,4 @@
-﻿var url = "http://localhost:45959/";
-
-var courses = {
+﻿var courses = {
     //events to load on ready.
     addEventHandlers: function () {
         courses.createNewCourse();
@@ -36,7 +34,7 @@ var courses = {
     //Add course to db
     registerNewCourse: function (course) {
         $.ajax({
-            url: url + "/api/courses/",
+            url: "/api/courses/",
             type: "POST",
             data: JSON.stringify(course),
             contentType: "application/json"
@@ -76,7 +74,7 @@ var courses = {
     listAllCourses: function () {
         $.ajax({
             type: "GET",
-            url: url + "/api/courses/",
+            url: "/api/courses/",
         }).done(function (data) {
             console.log(data) //remove this
             for (var i = 0; i < data.length; i++) {
@@ -117,7 +115,7 @@ var courses = {
         $("#courseDetailsStudentSelectList").empty();
         $("#registeredStudents").empty();
         $.ajax({
-            url: url + "/api/courses/" + id,
+            url: "/api/courses/" + id,
             type: "GET"
         }).done(function (data) {
             console.log(data) //remove
@@ -141,7 +139,6 @@ var courses = {
     // Puts student listed in Course in the list of active students.
     addStudentToRegisteredList: function (data, i) {
         $("#studentListLabel").text("");
-        console.log("xD") //remove
 
         $("#registeredStudents").append(
                         "<div class='list-group-item listed-student' data-id=' " +
@@ -168,7 +165,7 @@ var courses = {
 
         $.ajax({
             type: "GET",
-            url: url + "/api/students/",
+            url: "/api/students/",
 
         }).done(function (data) {
             for (var i = 0; i < data.length; i++) {
@@ -206,7 +203,7 @@ var courses = {
             var remove = confirm("Bekräfta borttagning av kurs!");
             if (remove) {
                 $.ajax({
-                    url: url + "/api/courses/" + id,
+                    url: "/api/courses/" + id,
                     type: "DELETE",
                 }).done(function () {
                     $("tbody").empty();
@@ -248,7 +245,7 @@ var courses = {
             }
 
             $.ajax({
-                url: url + "/api/courses",
+                url: "/api/courses",
                 type: "POST",
                 data: JSON.stringify(course),
                 contentType: "application/json"
@@ -332,7 +329,7 @@ var courses = {
     defaultPlaceholder: function () {
         $.ajax({
             type: "GET",
-            url: url + "api/courses/",
+            url: "api/courses/",
         }).done(function (data) {
             for (var i = 0; i < data.length; i++) {
                 $("#defaultPlaceholder").append("<div id='" + data[i].id + "'class='grid'><h1>" +
